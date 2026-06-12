@@ -133,6 +133,49 @@ The model correctly identifies satisfied passengers with strong precision and re
 
 ---
 
+## Business Impact of Prediction Errors
+
+While overall model accuracy and F1 score provide a measure of predictive performance, understanding the business implications of prediction errors is equally important.
+
+### False Positives (Predicting Satisfaction When the Customer is Actually Dissatisfied)
+
+A False Positive occurs when the model predicts that a passenger is satisfied, but the passenger is actually dissatisfied.
+
+**Business Costs:**
+- Dissatisfied customers may not receive timely intervention or service recovery efforts.
+- Increased risk of customer churn and loss of future revenue.
+- Negative word-of-mouth and unfavorable online reviews can damage brand reputation.
+- Management may incorrectly assume service quality is meeting customer expectations.
+- Customer complaints and operational issues may go unnoticed.
+
+**Example:**
+A passenger experiences poor service and flight delays but is predicted as satisfied. As a result, the airline does not follow up with compensation, support, or retention offers, increasing the likelihood that the customer switches to a competitor.
+
+### False Negatives (Predicting Dissatisfaction When the Customer is Actually Satisfied)
+
+A False Negative occurs when the model predicts that a passenger is dissatisfied, but the passenger is actually satisfied.
+
+**Business Costs:**
+- Resources may be wasted on unnecessary customer retention efforts.
+- The airline may provide discounts, loyalty rewards, or follow-up communications to customers who do not require intervention.
+- Customer service teams may spend time addressing non-existent issues.
+- Operational costs may increase due to unnecessary outreach campaigns.
+
+**Example:**
+A satisfied passenger is incorrectly flagged as dissatisfied and receives compensation or special offers that were not needed, resulting in additional costs for the airline.
+
+### Which Error is More Costly?
+
+In most airline customer satisfaction use cases, **False Positives are generally more costly than False Negatives**.
+
+The cost of losing an unhappy customer, damaging customer loyalty, and generating negative reviews often exceeds the cost of conducting unnecessary follow-up actions for a satisfied customer. Consequently, airlines may prefer a model that identifies dissatisfied customers more aggressively, even if this slightly increases the number of False Negatives.
+
+### Business Recommendation
+
+If the model is deployed to support customer retention initiatives, management should consider prioritizing the detection of dissatisfied passengers by optimizing the model for higher recall on the dissatisfied class. This approach can help ensure that at-risk customers are identified early and receive appropriate service recovery actions before they choose a competing airline.
+
+---
+
 ## Business Recommendations
 
 * Invest in inflight entertainment systems and content quality.
